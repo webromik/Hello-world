@@ -3,14 +3,14 @@ If you are reading a non-english translation of this document you will find a nu
 # Table of Contents
 
 * [Introduction](#introduction) 
-        * [ASTs](#asts) 
-                * [Parse](#parse) 
-                        * [Syntactic Analysis](#syntactic-analysis)
+  * [ASTs](#asts) 
+    * [Parse](#parse) 
+      * [Syntactic Analysis](#syntactic-analysis)
 
 # Test
 
 * [Introduction 1](#introduction1) 
-        * [ASTs ](#asts1) 
-                * [Parse 1](#parse1) 
-                        * [Syntactic Analysis 1](#syntactic-analysis1)
+  * [ASTs ](#asts1) 
+    * [Parse 1](#parse1) 
+      * [Syntactic Analysis 1](#syntactic-analysis1)
 dd
