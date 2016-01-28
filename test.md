@@ -4,6 +4,18 @@ This document covers how to create [Babel](https://babeljs.io) [plugins](https:/
 
 If you are reading a non-english translation of this handbook you may still find english sections that have not yet been translated. If you would like to contribute to one of the translations you must do so through Crowdin. Please read the [contributing guidelines](/CONTRIBUTING.md) for more information.
 
+# CLI Features
+
+* Websites
+        * Create and manage VM endpoints
+    * Download site logs
+    * Manage Deployments
+* Virtual machines
+    * Create and manage Windows and Linux Virtual machines
+	* Create and manage VM endpoints
+    * Create and manage Virtual Machine Images
+    * Create and manage certificates
+
 [![cc-by-4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](http://creativecommons.org/licenses/by/4.0/)
 
 Special thanks to [@sebmck](https://github.com/sebmck/), [@hzoo](https://github.com/hzoo), [@jdalton](https://github.com/jdalton), [@abraithwaite](https://github.com/abraithwaite), [@robey](https://github.com/robey), and others for their amazing help on this handbook.
