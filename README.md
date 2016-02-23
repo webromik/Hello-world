@@ -1,5 +1,24 @@
 # PHP Markdown
 
+
+
+
+```app/routes/scientists.js{+4,+5,+6}
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  model() {
+    return ['Marie Curie', 'Mae Jemison', 'Albert Hofmann'];
+  }
+});
+```
+
+
+
+
+
+
+
 PHP Markdown Lib 1.6.0 - 23 Dec 2015
 
 by Michel Fortin  
