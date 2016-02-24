@@ -1,122 +1,341 @@
-## Download
+# Windows Azure SDK for Node.js
 
-[Markdown 1.0.1](http://daringfireball.net/projects/downloads/Markdown_1.0.1.zip) (18 KB) -- 17 Dec 2004
+This project provides a Node.js package that makes it easy to access Windows Azure Services like Table Storage and Service Bus. It also includes a cross platform command line tool for managing Windows Azure Websites and Virtual Machines.
 
-## Introduction
+With Windows Azure Websites you can deploy node.js applications to the cloud in just seconds using git. 
 
-Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).
+For documentation on how to host Node.js applications on Windows Azure, please see the [Windows Azure Node.js Developer Center](http://www.windowsazure.com/en-us/develop/nodejs/).
 
-Thus, "Markdown" is two things: (1) a plain text formatting syntax; and (2) a software tool, written in Perl, that converts the plain text formatting to HTML. See the [Syntax](/projects/markdown/syntax) page for details pertaining to Markdown's formatting syntax. You can try it out, right now, using the online [Dingus](/projects/markdown/dingus).
+For documentation on the new cross platform CLI tool for Mac and Linux, please see this [reference](http://go.microsoft.com/fwlink/?LinkId=252246&clcid=0x409) and this [How to Guide](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/)
 
-The overriding design goal for Markdown's formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it's been marked up with tags or formatting instructions. While Markdown's syntax has been influenced by several existing text-to-HTML filters, the single biggest source of inspiration for Markdown's syntax is the format of plain text email.
+Check out our new IRC channel on freenode, node-azure.
 
-The best way to get a feel for Markdown's formatting syntax is simply to look at a Markdown-formatted document. For example, you can view the Markdown source for the article text on this page here: <http://daringfireball.net/projects/markdown/index.text>
+# CLI Features
 
-(You can use this '.text' suffix trick to view the Markdown source for the content of each of the pages in this section, e.g. the [Syntax](/projects/markdown/syntax.text) and [License](/projects/markdown/license.text) pages.)
+* Websites
+	* Create and manage WindowsAzure websites
+    * Download site logs
+    * Manage Deployments
+* Virtual machines
+    * Create and manage Windows and Linux Virtual machines
+	* Create and manage VM endpoints
+    * Create and manage Virtual Machine Images
+    * Create and manage certificates
 
-Markdown is free software, available under a BSD-style open source license. See the [License](/projects/markdown/license) page for more information.
+# Library Features
 
-## Discussion List <a id="discussion-list" />
+* Tables
+    * create and delete tables
+    * create, query, insert, update, merge, and delete entities
+* Blobs
+    * create, list, and delete containers, work with container metadata and permissions, list blobs in container
+    * create block and page blobs (from a stream, a file, or a string), work with blob blocks and pages, delete blobs
+    * work with blob properties, metadata, leases, snapshot a blob
+* Storage Queues
+    * create, list, and delete queues, and work with queue metadata
+    * create, get, peek, update, delete messages
+* Service Bus
+    * Queues: create, list and delete queues; create, list, and delete subscriptions; send, receive, unlock and delete messages
+    * Topics: create, list, and delete topics; create, list, and delete rules
+* Service Runtime
+    * discover addresses and ports for the endpoints of other role instances in your service
+    * get configuration settings and access local resources
+    * get role instance information for current role and other role instances
+    * query and set the status of the current role
 
-I've set up a public [mailing list for discussion about Markdown](http://six.pairlist.net/mailman/listinfo/markdown-discuss). Any topic related to Markdown -- both its formatting syntax and its software -- is fair game for discussion. Anyone who is interested is welcome to join.
+# Getting Started
+## Download Source Code
 
-It's my hope that the mailing list will lead to good ideas for future improvements to Markdown.
+To get the source code of the SDK via **git** just type:
 
-## Installation and Requirements <a id="install" />
+    git clone https://github.com/WindowsAzure/azure-sdk-for-node.git
+    cd ./azure-sdk-for-node
 
-Markdown requires Perl 5.6.0 or later. Welcome to the 21st Century. Markdown also requires the standard Perl library module [Digest::MD5](http://search.cpan.org/dist/Digest-MD5/MD5.pm), which is probably already installed on your server.
+## Download Package
 
-### Movable Type
+Alternatively, to get the source code via the Node Package Manager (npm), type
 
-Markdown works with Movable Type version 2.6 or later (including Movable Type 3.0).
+    npm install azure
 
-  1. Copy the "Markdown.pl" file into your Movable Type "plugins" directory. The "plugins" directory should be in the same directory as "mt.cgi"; if the "plugins" directory doesn't already exist, use your FTP program to create it. Your installation should look like this:
-    
-        (mt home)/plugins/Markdown.pl
-        
+You can use these packages against the cloud Windows Azure Services, or against
+the local Storage Emulator (with the exception of Service Bus features).
 
-  2. Once installed, Markdown will appear as an option in Movable Type's Text Formatting pop-up menu. This is selectable on a per-post basis:
-    
-    ![Screenshot of Movable Type 'Text Formatting' Menu](/graphics/markdown/mt_textformat_menu.png)
-    
-    Markdown translates your posts to HTML when you publish; the posts themselves are stored in your MT database in Markdown format.
+1. To use the cloud services, you need to first create an account with Windows Azure. To use the storage services, you need to set the AZURE_STORAGE_ACCOUNT and the AZURE_STORAGE_ACCESS_KEY environment variables to the storage account name and primary access key you obtain from the Azure Portal. To use Service Bus, you need to set the AZURE_SERVICEBUS_NAMESPACE and the AZURE_SERVICEBUS_ACCESS_KEY environment variables to the service bus namespace and the default key you obtain from the Azure Portal.
+2. To use the Storage Emulator, make sure the latest version of the Windows Azure SDK is installed on the machine, and set the EMULATED environment variable to any value ("true", "1", etc.)
 
-  3. If you also install SmartyPants 1.5 (or later), Markdown will offer a second text formatting option: "Markdown With SmartyPants". This option is the same as the regular "Markdown" formatter, except that it automatically uses SmartyPants to create typographically correct curly quotes, em-dashes, and ellipses. See the [SmartyPants web page](http://daringfireball.net/projects/smartypants/) for more information.
+# Usage
+## Table Storage
 
-  4. To make Markdown (or "Markdown With SmartyPants") your default text formatting option for new posts, go to Weblog Config: Preferences.
+To ensure a table exists, call **createTableIfNotExists**:
 
-Note that by default, Markdown produces XHTML output. To configure Markdown to produce HTML 4 output, see "Configuration", below.
+```Javascript
+var tableService = azure.createTableService();
+tableService.createTableIfNotExists('tasktable', function(error){
+    if(!error){
+        // Table exists
+    }
+});
+```
+A new entity can be added by calling **insertEntity**:
 
-### Blosxom
+```Javascript
+var tableService = azure.createTableService(),
+    task1 = {
+        PartitionKey : 'tasksSeattle',
+        RowKey: '1',
+        Description: 'Take out the trash',
+        DueDate: new Date(2011, 12, 14, 12) 
+    };
+tableService.insertEntity('tasktable', task1, function(error){ 
+    if(!error){
+        // Entity inserted
+    }
+});
+```
 
-Markdown works with Blosxom version 2.0 or later.
+The method **queryEntity** can then be used to fetch the entity that was just inserted:
 
-  1. Rename the "Markdown.pl" plug-in to "Markdown" (case is important). Movable Type requires plug-ins to have a ".pl" extension; Blosxom forbids it.
+```Javascript
+var tableService = azure.createTableService();
+tableService.queryEntity('tasktable', 'tasksSeattle', '1', function(error, serverEntity){
+    if(!error){
+        // Entity available in serverEntity variable
+    }
+});
+```
 
-  2. Copy the "Markdown" plug-in file to your Blosxom plug-ins folder. If you're not sure where your Blosxom plug-ins folder is, see the Blosxom documentation for information.
+## Blob Storage
 
-  3. That's it. The entries in your weblog will now automatically be processed by Markdown.
+The **createContainerIfNotExists** method can be used to create a 
+container in which to store a blob:
 
-  4. If you'd like to apply Markdown formatting only to certain posts, rather than all of them, Markdown can optionally be used in conjunction with Blosxom's [Meta](http://www.blosxom.com/plugins/meta/meta.htm) plug-in. First, install the Meta plug-in. Next, open the Markdown plug-in file in a text editor, and set the configuration variable `$g_blosxom_use_meta` to 1. Then, simply include a "`meta-markup: Markdown`" header line at the top of each post you compose using Markdown.
+```Javascript
+var blobService = azure.createBlobService();
+blobService.createContainerIfNotExists('taskcontainer', {publicAccessLevel : 'blob'}, function(error){
+    if(!error){
+        // Container exists and is public
+    }
+});
+```
 
-### BBEdit
+To upload a file (assuming it is called task1-upload.txt, it contains the exact text "hello world" (no quotation marks), and it is placed in the same folder as the script below), the method **createBlockBlobFromStream** can be used:
 
-Markdown works with BBEdit 6.1 or later on Mac OS X. It also works with BBEdit 5.1 or later and MacPerl 5.6.1 on Mac OS 8.6 or later. If you're running Mac OS X 10.2 (Jaguar), you may need to install the Perl module [Digest::MD5](http://search.cpan.org/dist/Digest-MD5/MD5.pm) from CPAN; Digest::MD5 comes pre-installed on Mac OS X 10.3 (Panther).
+```Javascript
+var blobService = azure.createBlobService();
+blobService.createBlockBlobFromStream('taskcontainer', 'task1', fs.createReadStream('task1-upload.txt'), 11, function(error){
+    if(!error){
+        // Blob uploaded
+    }
+});
+```
 
-  1. Copy the "Markdown.pl" file to appropriate filters folder in your "BBEdit Support" folder. On Mac OS X, this should be:
-    
-        BBEdit Support/Unix Support/Unix Filters/
-        
-    
-    See the BBEdit documentation for more details on the location of these folders.
-    
-    You can rename "Markdown.pl" to whatever you wish.
+To download the blob and write it to the file system, the **getBlobToStream** method can be used:
 
-  2. That's it. To use Markdown, select some text in a BBEdit document, then choose Markdown from the Filters sub-menu in the "#!" menu, or the Filters floating palette
+```Javascript
+var blobService = azure.createBlobService();
+blobService.getBlobToStream('taskcontainer', 'task1', fs.createWriteStream('task1-download.txt'), function(error, serverBlob){
+    if(!error){
+        // Blob available in serverBlob.blob variable
+    }
+});
+```
 
-## Configuration <a id="configuration"></a>
+## Storage Queues
 
-By default, Markdown produces XHTML output for tags with empty elements. E.g.:
+The **createQueueIfNotExists** method can be used to ensure a queue exists:
 
-    <br />
-    
+```Javascript
+var queueService = azure.createQueueService();
+queueService.createQueueIfNotExists('taskqueue', function(error){
+    if(!error){
+        // Queue exists
+    }
+});
+```
 
-Markdown can be configured to produce HTML-style tags; e.g.:
+The **createMessage** method can then be called to insert the message into the queue:
 
-    <br>
-    
+```Javascript
+var queueService = azure.createQueueService();
+queueService.createMessage('taskqueue', "Hello world!", function(error){
+    if(!error){
+        // Message inserted
+    }
+});
+```
 
-### Movable Type
+It is then possible to call the **getMessage** method, process the message and then call **deleteMessage** inside the callback. This two-step process ensures messages don't get lost when they are removed from the queue.
 
-You need to use a special `MTMarkdownOptions` container tag in each Movable Type template where you want HTML 4-style output:
+```Javascript
+var queueService = azure.createQueueService(),
+    queueName = 'taskqueue';
+queueService.getMessages(queueName, function(error, serverMessages){
+    if(!error){
+        // Process the message in less than 30 seconds, the message
+        // text is available in serverMessages[0].messagetext 
 
-    <MTMarkdownOptions output='html4'>
-        ... put your entry content here ...
-    </MTMarkdownOptions>
-    
+        queueService.deleteMessage(queueName, serverMessages[0].messageid, serverMessages[0].popreceipt, function(error){
+            if(!error){
+                // Message deleted
+            }
+        });
+    }
+});
+```
 
-The easiest way to use MTMarkdownOptions is probably to put the opening tag right after your `<body>` tag, and the closing tag right before `</body>`.
+## Service Bus Queues
 
-To suppress Markdown processing in a particular template, i.e. to publish the raw Markdown-formatted text without translation into (X)HTML, set the `output` attribute to 'raw':
+Service Bus Queues are an alternative to Storage Queues that might be useful in scenarios where more advanced messaging features are needed (larger message sizes, message ordering, single-operaiton destructive reads, scheduled delivery) using push-style delivery (using long polling).
 
-    <MTMarkdownOptions output='raw'>
-        ... put your entry content here ...
-    </MTMarkdownOptions>
-    
+The **createQueueIfNotExists** method can be used to ensure a queue exists:
 
-### Command-Line
+```Javascript
+var serviceBusService = azure.createServiceBusService();
+serviceBusService.createQueueIfNotExists('taskqueue', function(error){
+    if(!error){
+        // Queue exists
+    }
+});
+```
 
-Use the `--html4tags` command-line switch to produce HTML output from a Unix-style command line. E.g.:
+The **sendQueueMessage** method can then be called to insert the message into the queue:
 
-    % perl Markdown.pl --html4tags foo.text
-    
+```Javascript
+var serviceBusService = azure.createServiceBusService();
+serviceBusService.sendQueueMessage('taskqueue', 'Hello world!', function(
+    if(!error){
+        // Message sent
+     }
+});
+```
 
-Type `perldoc Markdown.pl`, or read the POD documentation within the Markdown.pl source code for more information.
+It is then possible to call the **receiveQueueMessage** method to dequeue the message.
 
-## Acknowledgements <a id="acknowledgements" />
+```Javascript
+var serviceBusService = azure.createServiceBusService();
+serviceBusService.receiveQueueMessage('taskqueue', function(error, serverMessage){
+    if(!error){
+        // Process the message
+    }
+});
+```
 
-[Aaron Swartz](http://www.aaronsw.com/) deserves a tremendous amount of credit for his feedback on the design of Markdown's formatting syntax. Markdown is *much* better thanks to Aaron's ideas, feedback, and testing. Also, Aaron's [html2text](http://www.aaronsw.com/2002/html2text/) is a very handy (and free) utility for turning HTML into Markdown-formatted plain text.
+## Service Bus Topics
 
-[Nathaniel Irons](http://bumppo.net/), [Dan Benjamin](http://hivelogic.com/), [Daniel Bogan](http://waferbaby.com/), and [Jason Perkins](http://pressedpants.com/) also deserve thanks for their feedback.
+Service Bus topics are an abstraction on top of Service Bus Queues that make pub/sub scenarios easy to implement.
 
-[Michel Fortin](http://www.michelf.com/projects/php-markdown/) has ported Markdown to PHP; it's a splendid port, and highly recommended for anyone looking for a PHP implementation of Markdown.
+The **createTopicIfNotExists** method can be used to create a server-side topic:
+
+```Javascript
+var serviceBusService = azure.createServiceBusService();
+serviceBusService.createTopicIfNotExists('taskdiscussion', function(error){
+    if(!error){
+        // Topic exists
+    }
+});
+```
+
+The **sendTopicMessage** method can be used to send a message to a topic:
+
+```Javascript
+var serviceBusService = azure.createServiceBusService();
+serviceBusService.sendTopicMessage('taskdiscussion', 'Hello world!', function(error){
+    if(!error){
+        // Message sent
+    }
+});
+```
+
+A client can then create a subscription and start consuming messages by calling the **createSubscription** method followed by the **receiveSubscriptionMessage** method. Please note that any messages sent before the subscription is created will not be received.
+
+```Javascript
+var serviceBusService = azure.createServiceBusService(),
+    topic = 'taskdiscussion',
+    subscription = 'client1';
+
+serviceBusService.createSubscription(topic, subscription, function(error1){
+    if(!error1){
+        // Subscription created
+
+        serviceBusService.receiveSubscriptionMessage(topic, subscription, function(error2, serverMessage){
+            if(!error2){
+                // Process message
+            }
+        });
+     }
+});
+```
+
+## Service Runtime
+
+The Service Runtime allows you to interact with the machine environment where the current role is running. Please note that these commands will only work if your code is running in a worker role inside the Azure emulator or in the cloud.
+
+The **isAvailable** method lets you determine whether the service runtime endpoint is running on the local machine.  It is good practice to enclose any code that 
+uses service runtime in the isAvailable callback.
+
+```JavaScript
+azure.RoleEnvironment.isAvailable(function(error, available) {
+    if (available) {
+        // Place your calls to service runtime here
+    }
+});
+```
+
+The **getConfigurationSettings** method lets you obtain values from the role's .cscfg file.
+
+```Javascript
+azure.RoleEnvironment.getConfigurationSettings(function(error, settings) {
+    if (!error) {
+        // You can get the value of setting "setting1" via settings['setting1']
+    }        
+});
+```
+
+The **getLocalResources** method lets you find the path to defined local storage resources for the current role.  For example, the DiagnosticStore 
+resource which is defined for every role provides a location for runtime diagnostics and logs.
+
+```Javascript
+azure.RoleEnvironment.getLocalResources(function(error, resources) {
+    if(!error){
+        // You can get the path to the role's diagnostics store via 
+        // resources['DiagnosticStore']['path']
+    }
+});
+```
+
+The **getCurrentRoleInstance** method lets you obtain information about endpoints defined for the current role instance:
+
+```JavaScript
+azure.RoleEnvironment.getCurrentRoleInstance(function(error, instance) {
+    if (!error && instance['endpoints']) {
+        // You can get information about "endpoint1" such as its address and port via
+        // instance['endpoints']['endpoint1']['address'] and instance['endpoints']['endpoint1']['port']
+    }
+});
+```
+
+The **getRoles** method lets you obtain information about endpoints in role instances running on other machines:
+
+```Javascript
+azure.RoleEnvironment.getRoles(function(error, roles) {
+    if(!error){
+        // You can get information about "instance1" of "role1" via roles['role1']['instance1']
+    } 
+});
+```
+
+
+**For more examples please see the [Windows Azure Node.js Developer Center](http://www.windowsazure.com/en-us/develop/nodejs)**
+
+# Need Help?
+
+Be sure to check out the Windows Azure [Developer Forums on Stack Overflow](http://go.microsoft.com/fwlink/?LinkId=234489) if you have trouble with the provided code.
+
+# Contribute Code or Provide Feedback
+
+If you would like to become an active contributor to this project please follow the instructions provided in [Windows Azure Projects Contribution Guidelines](http://windowsazure.github.com/guidelines.html).
+
+If you encounter any bugs with the library please file an issue in the [Issues](https://github.com/WindowsAzure/azure-sdk-for-node/issues) section of the project.
+
+# Learn More
+[Windows Azure Node.js Developer Center](http://www.windowsazure.com/en-us/develop/nodejs/)
