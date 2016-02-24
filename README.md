@@ -2,6 +2,91 @@
 
 
 
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
+
+```python
+s = "Python syntax highlighting"
+print s
+```
+
+    No language indicated, so no syntax highlighting. 
+    But let's throw in a <b>tag</b>.
+    
+
+testtst fvasdkjfvbsak;djfkasj
+
+```app/templates/scientists.hbs
+<h2>List of Scientists</h2>
+```
+
+The Guides are built with Middleman, which runs on Ruby 1.9.3 or newer (2.0.0 recommended).
+
+During build, Middleman will require Aspell to look for misspellings. On Macs, it can be installed via Homebrew:
+
+```sh
+brew install aspell --with-lang-en
+```
+
+On Windows, you can download an [installer](http://aspell.net/win32/), but unfortunately it is unmaintained. On Linux, you can install with your distribution's package manager. On all platforms, you can also [build the most recent version from source](http://aspell.net/man-html/Installing.html).
+
+## Developing with the Guides
+
+To get started:
+
+```sh
+git clone git://github.com/emberjs/guides.git
+cd guides
+bundle
+bundle exec middleman
+```
+
+In your browser, open <http://localhost:4200/scientists>. You should see the `<h2>` you put in the `scientists.hbs` template, right below the `<h1>` from our `application.hbs` template.
+
+This guide will teach you how to build a simple app using Ember from scratch.
+
+## Create a New Application
+
+Once you've installed Ember via npm, you will have access to a new `ember` command in your terminal. You can use the `ember new` command to create a new application.
+
+```sh
+ember new ember-quickstart
+```
+
+This one command will create a new directory called `ember-quickstart` and set up a new Ember application inside of it. Out of the box, your application will include:
+
+* A development server
+* Template compilation
+* JavaScript and CSS minification
+* ES2015 features via Babel
+
+By providing everything you need to build production-ready web applications in an integrated package, Ember makes starting new projects a breeze.
+
+Let's make sure everything is working properly. Open the `ember-quickstart` directory in your favorite editor, such as Sublime Text or Vim. Once you have your editor open, `cd` into the application directory and start the development server by typing:
+
+```sh
+cd ember-quickstart
+ember serve
+```
+
+After a few seconds, you should see output that looks like this:
+
+```text
+Livereload server on http://localhost:49152
+Serving on http://localhost:4200/
+```
+
+Open the newly-created template in `app/templates/scientists.hbs` and add the following HTML:
+
+```app/templates/scientists.hbs
+<h2>List of Scientists</h2>
+```
+
+Now that we've got the `scientists` template rendering, let's give it some data to render. We do that by specifying a *model* for that route, and we can specify a model by editing `app/routes/scientists.js`.
+
+We'll take the code created for us by the generator and add a `model()` method to the `Route`:
 
 ```app/routes/scientists.js{+4,+5,+6}
 import Ember from 'ember';
@@ -11,6 +96,7 @@ export default Ember.Route.extend({
     return ['Marie Curie', 'Mae Jemison', 'Albert Hofmann'];
   }
 });
+```
 ```
 
 
