@@ -2,7 +2,7 @@
 
 This project provides a Node.js package that makes it easy to access Windows Azure Services like Table Storage and Service Bus. It also includes a cross platform command line tool for managing Windows Azure Websites and Virtual Machines.
 
-With Windows Azure Websites you can deploy node.js applications to the cloud in just seconds using git. 
+With Windows Azure Websites you can deploy node.js applications to the cloud in just seconds using git.
 
 For documentation on how to host Node.js applications on Windows Azure, please see the [Windows Azure Node.js Developer Center](http://www.windowsazure.com/en-us/develop/nodejs/).
 
@@ -12,58 +12,61 @@ Check out our new IRC channel on freenode, node-azure.
 
 # CLI Features
 
-* Websites
-	* Create and manage WindowsAzure websites
+* Websites 
+    * Create and manage WindowsAzure websites
     * Download site logs
     * Manage Deployments
-* Virtual machines
+* Virtual machines 
     * Create and manage Windows and Linux Virtual machines
-	* Create and manage VM endpoints
+    * Create and manage VM endpoints
     * Create and manage Virtual Machine Images
     * Create and manage certificates
 
 # Library Features
 
-* Tables
+* Tables 
     * create and delete tables
     * create, query, insert, update, merge, and delete entities
-* Blobs
+* Blobs 
     * create, list, and delete containers, work with container metadata and permissions, list blobs in container
     * create block and page blobs (from a stream, a file, or a string), work with blob blocks and pages, delete blobs
     * work with blob properties, metadata, leases, snapshot a blob
-* Storage Queues
+* Storage Queues 
     * create, list, and delete queues, and work with queue metadata
     * create, get, peek, update, delete messages
-* Service Bus
+* Service Bus 
     * Queues: create, list and delete queues; create, list, and delete subscriptions; send, receive, unlock and delete messages
     * Topics: create, list, and delete topics; create, list, and delete rules
-* Service Runtime
+* Service Runtime 
     * discover addresses and ports for the endpoints of other role instances in your service
     * get configuration settings and access local resources
     * get role instance information for current role and other role instances
     * query and set the status of the current role
 
 # Getting Started
+
 ## Download Source Code
 
 To get the source code of the SDK via **git** just type:
 
     git clone https://github.com/WindowsAzure/azure-sdk-for-node.git
     cd ./azure-sdk-for-node
+    
 
 ## Download Package
 
 Alternatively, to get the source code via the Node Package Manager (npm), type
 
     npm install azure
+    
 
-You can use these packages against the cloud Windows Azure Services, or against
-the local Storage Emulator (with the exception of Service Bus features).
+You can use these packages against the cloud Windows Azure Services, or against the local Storage Emulator (with the exception of Service Bus features).
 
-1. To use the cloud services, you need to first create an account with Windows Azure. To use the storage services, you need to set the AZURE_STORAGE_ACCOUNT and the AZURE_STORAGE_ACCESS_KEY environment variables to the storage account name and primary access key you obtain from the Azure Portal. To use Service Bus, you need to set the AZURE_SERVICEBUS_NAMESPACE and the AZURE_SERVICEBUS_ACCESS_KEY environment variables to the service bus namespace and the default key you obtain from the Azure Portal.
-2. To use the Storage Emulator, make sure the latest version of the Windows Azure SDK is installed on the machine, and set the EMULATED environment variable to any value ("true", "1", etc.)
+  1. To use the cloud services, you need to first create an account with Windows Azure. To use the storage services, you need to set the AZURE_STORAGE_ACCOUNT and the AZURE_STORAGE_ACCESS_KEY environment variables to the storage account name and primary access key you obtain from the Azure Portal. To use Service Bus, you need to set the AZURE_SERVICEBUS_NAMESPACE and the AZURE_SERVICEBUS_ACCESS_KEY environment variables to the service bus namespace and the default key you obtain from the Azure Portal.
+  2. To use the Storage Emulator, make sure the latest version of the Windows Azure SDK is installed on the machine, and set the EMULATED environment variable to any value ("true", "1", etc.)
 
 # Usage
+
 ## Table Storage
 
 To ensure a table exists, call **createTableIfNotExists**:
@@ -76,6 +79,7 @@ tableService.createTableIfNotExists('tasktable', function(error){
     }
 });
 ```
+
 A new entity can be added by calling **insertEntity**:
 
 ```Javascript
@@ -106,8 +110,7 @@ tableService.queryEntity('tasktable', 'tasksSeattle', '1', function(error, serve
 
 ## Blob Storage
 
-The **createContainerIfNotExists** method can be used to create a 
-container in which to store a blob:
+The **createContainerIfNotExists** method can be used to create a container in which to store a blob:
 
 ```Javascript
 var blobService = azure.createBlobService();
@@ -270,8 +273,7 @@ serviceBusService.createSubscription(topic, subscription, function(error1){
 
 The Service Runtime allows you to interact with the machine environment where the current role is running. Please note that these commands will only work if your code is running in a worker role inside the Azure emulator or in the cloud.
 
-The **isAvailable** method lets you determine whether the service runtime endpoint is running on the local machine.  It is good practice to enclose any code that 
-uses service runtime in the isAvailable callback.
+The **isAvailable** method lets you determine whether the service runtime endpoint is running on the local machine. It is good practice to enclose any code that uses service runtime in the isAvailable callback.
 
 ```JavaScript
 azure.RoleEnvironment.isAvailable(function(error, available) {
@@ -291,8 +293,7 @@ azure.RoleEnvironment.getConfigurationSettings(function(error, settings) {
 });
 ```
 
-The **getLocalResources** method lets you find the path to defined local storage resources for the current role.  For example, the DiagnosticStore 
-resource which is defined for every role provides a location for runtime diagnostics and logs.
+The **getLocalResources** method lets you find the path to defined local storage resources for the current role. For example, the DiagnosticStore resource which is defined for every role provides a location for runtime diagnostics and logs.
 
 ```Javascript
 azure.RoleEnvironment.getLocalResources(function(error, resources) {
@@ -324,7 +325,6 @@ azure.RoleEnvironment.getRoles(function(error, roles) {
 });
 ```
 
-
 **For more examples please see the [Windows Azure Node.js Developer Center](http://www.windowsazure.com/en-us/develop/nodejs)**
 
 # Need Help?
@@ -338,4 +338,5 @@ If you would like to become an active contributor to this project please follow 
 If you encounter any bugs with the library please file an issue in the [Issues](https://github.com/WindowsAzure/azure-sdk-for-node/issues) section of the project.
 
 # Learn More
+
 [Windows Azure Node.js Developer Center](http://www.windowsazure.com/en-us/develop/nodejs/)
