@@ -2,7 +2,7 @@
 
 This document covers how to create [Babel](https://babeljs.io) [plugins](https://babeljs.io/docs/advanced/plugins/).
 
-```app/templa@_te-s/sc@ientists.hbs
+```app/прпрпо/івпів@ientists.hbs
 <h2>List of Scientists</h2>
 ```
 
