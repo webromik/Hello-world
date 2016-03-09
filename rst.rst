@@ -1,3 +1,21 @@
+===================
+Pandoc User's Guide
+===================
+
+:Author: John MacFarlane
+:Date:   January 12, 2016
+
+.. role:: math(raw)
+   :format: html latex
+..
+
+.. contents::
+   :depth: 3.0
+..
+
+
+
+
 rst2html5 tools - RestructuredText to HTML5 + bootstrap css
 ===========================================================
 
