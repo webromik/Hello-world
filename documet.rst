@@ -513,7 +513,7 @@ Any errors caught during processing will generate system messages.
 
 There should be six messages in the following, auto-generated section,
 "Docutils System Messages":
-
+1
 .. raw:: html
 
    <div class="footnotes">
