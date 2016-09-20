@@ -1,33 +1,34 @@
 ### The Team at BitMEX
-
-    <div class="founders row">
-      <div class="founder-outer col-md-4 col-xs-12">
-        <img src="/img/static/arthur-photo.jpg" />
-        <div class="name"><a href="https://www.linkedin.com/profile/view?id=6955113">Arthur Hayes</a></div>
-        <div class="well">
-          <b><u>Co-Founder and CEO</b></u><br />
-          Experienced Equity Derivatives Trader and Banker.
-        </div>
-      </div>
-    
-      <div class="founder-outer col-md-4 col-xs-12">
-        <img src="/img/static/sam-photo.jpg" />
-        <div class="name"><a href="https://www.linkedin.com/profile/view?id=161504866">Samuel Reed</a></div>
-        <div class="well">
-          <b><u>Co-Founder and CTO</b></u><br />
-          Expert in Fast, Realtime Web Applications.
-        </div>
-      </div>
-    
-      <div class="founder-outer col-md-4 col-xs-12">
-        <img src="/img/static/ben-photo.jpg" />
-        <div class="name"><a href="https://hk.linkedin.com/in/bendelo">Ben Delo</a></div>
-        <div class="well">
-          <b><u>Co-Founder and COO</b></u><br />
-          Builds market making and high frequency trading systems.
-        </div>
-      </div>
+```
+<div class="founders row">
+  <div class="founder-outer col-md-4 col-xs-12">
+    <img src="/img/static/arthur-photo.jpg" />
+    <div class="name"><a href="https://www.linkedin.com/profile/view?id=6955113">Arthur Hayes</a></div>
+    <div class="well">
+      <b><u>Co-Founder and CEO</b></u><br />
+      Experienced Equity Derivatives Trader and Banker.
     </div>
+  </div>
+
+  <div class="founder-outer col-md-4 col-xs-12">
+    <img src="/img/static/sam-photo.jpg" />
+    <div class="name"><a href="https://www.linkedin.com/profile/view?id=161504866">Samuel Reed</a></div>
+    <div class="well">
+      <b><u>Co-Founder and CTO</b></u><br />
+      Expert in Fast, Realtime Web Applications.
+    </div>
+  </div>
+
+  <div class="founder-outer col-md-4 col-xs-12">
+    <img src="/img/static/ben-photo.jpg" />
+    <div class="name"><a href="https://hk.linkedin.com/in/bendelo">Ben Delo</a></div>
+    <div class="well">
+      <b><u>Co-Founder and COO</b></u><br />
+      Builds market making and high frequency trading systems.
+    </div>
+  </div>
+</div>
+```
     
 
 The founding team at BitMEX consists of best-of-class professionals in finance, web development, and high-frequency algorithmic trading.
