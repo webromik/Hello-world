@@ -1,7 +1,7 @@
 Unordered lists use asterisks, pluses, and hyphens -- interchangably:
-1   Red
-2   Green
-3   Blue
+1.   Red
+2.   Green
+3.   Blue
 
 
 ### The Team at BitMEX
