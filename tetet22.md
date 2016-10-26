@@ -3,6 +3,18 @@ Unordered lists use asterisks, pluses, and hyphens -- interchangably:
 2.   Green
 3.   Blue
 
+If you instead wrote the list in Markdown like this:
+
+    1.  Bird
+    1.  McHale
+    1.  Parish
+
+or even:
+
+    3. Bird
+    1. McHale
+    8. Parish
+
 
 <div class="founders row">
   <div class="founder-outer col-md-4 col-xs-12">
