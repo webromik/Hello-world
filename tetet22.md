@@ -2,12 +2,12 @@
 [sign up]: {{site.parentsite}}/signup
 
 
-[sdfsd]({{site.url}}/assets/docs/start_project.png)
-[sdfsd]({{site.url}}/assets/docs/start_project.png)
-[Uploading Files for Localization]({{ site.baseurl }})
-[Uploading Files for Localization]({{site.baseurl}})
-[Uploading Files for Localization](https://regex101.com/r/hX4A2e/1)
-[Uploading Files for Localization]({{site.baseurl}}{% link _docs/uploading-files.md%})
+* [sdfsd]({{site.url}}/assets/docs/start_project.png)
+* [sdfsd]({{site.url}}/assets/docs/start_project.png)
+* [Uploading Files for Localization]({{ site.baseurl }})
+* [Uploading Files for Localization]({{site.baseurl}})
+* [Uploading Files for Localization](https://rege x101.com/r/hX4 A2e/1)
+* [Uploading Files for Localization]({{site.baseurl}}{% link _docs/uploading-files.md%})
 
 
 You have to create a project before you can add any content that requires translation.
