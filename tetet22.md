@@ -1,7 +1,26 @@
-Unordered lists use asterisks, pluses, and hyphens -- interchangably:
-1.   Red
-2.   Green
-3.   Blue
+[Log in]: {{site.parentsite}}/login
+[sign up]: {{site.parentsite}}/signup
+
+You have to create a project before you can add any content that requires translation.
+
+To create a project:
+1.  [Log in][] or [sign up][] to your Crowdin account
+2.  Click **Start Project**
+![]({{site.url}}/assets/docs/start_project.png)
+3.  Name your project
+4.  Customize your project address. It can not be changed after the project has been created.
+5.  Define whether you want your project to be visible for everyone or private. If your project is public you still have an option to restrict the possibility to make translations for users until you confirm their membership. In its turn, private projects can not be found via search engines and Crowdin search.
+![]({{site.url}}/assets/docs/project_visibility.png)
+6.  Select the source and target languages of your project. The source language is the language you’re translating from and target languages are the ones you’re translating to.
+![]({{site.url}}/assets/docs/project_langauges.png)
+Please note, the source language cannot be further changed. If one of your target languages is missing in the list, you can add it as a custom language later.
+7.  Click **Create Project**. After this you will be navigated to the Project Settings page.
+
+#### Next Steps
+-   [Uploading Files for Localization]({{ site.baseurl }}{% link _docs/uploading-files.md %})
+-   [Advanced Project Setup]({{ site.baseurl }}{% link _docs/advanced-project-setup.md %})
+-   [Uploading Existing Translations]({{ site.baseurl }}{% link _docs/uploading-translations.md %})
+-   [Inviting Project Participants]({{ site.baseurl }}{% link _docs/inviting-participants.md %})
 
 If you instead wrote the list in Markdown like this:
 
