@@ -1,9 +1,8 @@
 Unordered lists use asterisks, pluses, and hyphens -- interchangably
 -- as list markers:
-
-  *   Red
-  *   Green
-  *   Blue
+*   Red
+*   Green
+*   Blue
 
 
 ### The Team at BitMEX
