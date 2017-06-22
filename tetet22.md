@@ -1,12 +1,30 @@
-  List items may consist of multiple paragraphs. Each subsequent paragraph in a list item must be indented by either 4 spaces or one tab:
-*  This is a list item with two paragraphs. Lorem ipsum dolor
+1. Click **Create Task**. Note: One task can be assigned to one project only.
+![]({{site.url}}/assets/docs/tasks_create_button.png)
+
+2. Fill in the **Task Name** and **Description** fields.
+3. Set the following parameters:
+  - *Type* – choose between Translation and Proofreading
+  - *Type2* – (optional) – set a deadline
+  - *Languages* – as many languages you choose as many tasks will be created. The words column will show you the total number of words that would be added to the task
+
+
+4. Assign users to the task for each language separately.
+5. Click **Create Task**.
+![]({{site.url}}/assets/docs/tasks_submit.png){:style="max-width: 789px;"}
+
+
+
+
+List items may consist of multiple paragraphs. Each subsequent paragraph in a list item must be indented by either 4 spaces or one tab:
+1.  This is a list item with two paragraphs. Lorem ipsum dolor
     sit amet, consectetuer adipiscing elit. Aliquam hendrerit
     mi posuere lectus.
-Vestibulum enim wisi, viverra nec, fringilla in, laoreet
+
+    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
     vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
     sit amet velit.
 
-*  Suspendisse id sem consectetuer libero luctus adipiscing.
+2.  Suspendisse id sem consectetuer libero luctus adipiscing.
 
 It looks nice if you indent every line of the subsequent paragraphs, but here again, Markdown will allow you to be lazy:
 *   This is a list item with two paragraphs.
