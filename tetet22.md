@@ -1,12 +1,10 @@
 1. Click **Create Task**. Note: One task can be assigned to one project only.
 ![]({{site.url}}/assets/docs/tasks_create_button.png)
-
 2. Fill in the **Task Name** and **Description** fields.
 3. Set the following parameters:
   - *Type* – choose between Translation and Proofreading
   - *Type2* – (optional) – set a deadline
   - *Languages* – as many languages you choose as many tasks will be created. The words column will show you the total number of words that would be added to the task
-
 
 4. Assign users to the task for each language separately.
 5. Click **Create Task**.
