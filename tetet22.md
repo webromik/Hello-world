@@ -1,8 +1,3 @@
-```
-  var test = ee;
-```
-
-
 To create a project:
 1.   [Log in][] or [sign up][] to your Crowdin account
 2.   Click **Start Project**
