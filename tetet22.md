@@ -1,9 +1,9 @@
 To create a project:
-1.      [Log in][] or [sign up][] to your Crowdin account
-2.      Click **Start Project**
+1.   [Log in][] or [sign up][] to your Crowdin account
+2.   Click **Start Project**
 ![]({{site.url}}/assets/docs/start_project.png)
-3.      Name your project
-4.      Customize your project address. It can not be changed after the project has been created.
+3.   Name your project
+4.   Customize your project address. It can not be changed after the project has been created.
 
 ---
 
