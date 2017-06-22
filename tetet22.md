@@ -28,8 +28,8 @@ To create a project:
 You have to create a project before you can add any content that requires translation.
 
 To create a project:
-1.    [Log in][] or [sign up][] to your Crowdin account
-2.      Click **Start Project**
+1.  [Log in][] or [sign up][] to your Crowdin account
+2.  Click **Start Project**
 ![]({{site.url}}/assets/docs/start_project.png)
 3.  Name your project
 4.  Customize your project address. It can not be changed after the project has been created.
