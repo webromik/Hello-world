@@ -5,6 +5,7 @@ To create a project:
 3.   Name your project
 4.   Customize your project address. It can not be changed after the project has been created.
 
+---
 
 [Log in]: {{site.parentsite}}/login
 [sign up]: {{site.parentsite}}/signup
