@@ -1,8 +1,8 @@
 ## References - combined pill
 
 1. Sulak PJ
-  1. test
-  2. test22
+   1. test
+   2. test22
 2. Kwiecien
 3. Apter D
 4. Rivera 
