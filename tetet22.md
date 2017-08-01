@@ -38,22 +38,19 @@
                   <a href="#routing-handlers-controllers">Контроллеры</a>
                 </li>
               </ul>
-            </li>
-            
+            </li>            
             <li>
               <a href="#routing-handlers-controllers-lazy-loading">Загрузка по требованию</a> <ul>
                 <li>
                   <a href="#routing-handlers-controllers-lazy-loading-use-case">Сценарий использования</a>
                 </li>
               </ul>
-            </li>
-            
+            </li>            
             <li>
               <a href="#routing-handlers-not-found">Не найдено (404)</a>
             </li>
           </ul>
-        </li>
-        
+        </li>        
         <li>
           <a href="#routing-verbs">Методы-глаголы</a> <ul>
             <li>
@@ -81,8 +78,7 @@
               <a href="#routing-verb-put">put</a>
             </li>
           </ul>
-        </li>
-        
+        </li>        
         <li>
           <a href="#routing-collections">Коллекции</a>
         </li>
