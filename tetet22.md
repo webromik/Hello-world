@@ -1,3 +1,22 @@
+## References - combined pill
+
+1. Sulak PJ
+  1. test
+  2. test22
+2. Kwiecien
+3. Apter D
+4. Rivera 
+5. Johnson
+6. Wright 
+7. Maguire
+8. American
+9. Ahrendt 
+10. Schrager
+11. Schrager
+
+
+
+
 * Click **Create Task**. Note: One task can be assigned to one project only.
 ![]({{site.url}}/assets/docs/tasks_create_button.png)
 * Fill in the **Task Name** and **Description** fields.
